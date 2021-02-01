@@ -5,9 +5,9 @@ import (
   "log"
 "encoding/base64"
   "net/http"
-  "github.com/gin-contrib/sessions"
+  "github.com/gin-contrib/sessions/cookie"
   "github.com/jcelliott/lumber"
-  "github.com/schollz/cowyo/server"
+  "github.com/nod/cowyo/server"
   "strings"
 )
 func (c Config) ListenAndServe() error {
@@ -57,7 +57,7 @@ func (s SiteConfig) MatchesRequest(r *http.Request) bool {
   return sh == r.Host
 }
 
-func (s SiteConfig) sessionStore() sessions.Store {
+func (s SiteConfig) sessionStore() cookie.Store {
   keys := [][]byte{}
   for _, k := range s.CookieKeys {
     key, err := base64.StdEncoding.DecodeString(k.AuthenticateBase64)
@@ -79,7 +79,7 @@ func (s SiteConfig) sessionStore() sessions.Store {
     }
       keys = append(keys, key)
   }
-  return sessions.NewStore(keys...)
+  return cookie.NewStore(keys...)
 }
 
 func (s SiteConfig) Handle(rw http.ResponseWriter, r *http.Request) {

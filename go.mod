@@ -1,4 +1,4 @@
-module github.com/schollz/cowyo
+module github.com/nod/cowyo
 
 go 1.12
 

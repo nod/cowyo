@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/jcelliott/lumber"
-	"github.com/schollz/cowyo/server"
+	"github.com/nod/cowyo/server"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

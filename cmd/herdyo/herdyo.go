@@ -4,12 +4,12 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/gin-contrib/sessions"
-	"github.com/schollz/cowyo/server"
+	"github.com/gin-contrib/sessions/cookie"
+	"github.com/nod/cowyo/server"
 )
 
 func main() {
-	store := sessions.NewStore([]byte("secret"))
+	store := cookie.NewStore([]byte("secret"))
 
 	first := server.Site{
 		PathToData:           "site1",

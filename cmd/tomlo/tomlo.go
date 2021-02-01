@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/schollz/cowyo/config"
+	"github.com/nod/cowyo/config"
 )
 
 func main() {
